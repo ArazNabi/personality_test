@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 import numpy as np
 
 class RadarChart:
@@ -30,3 +31,16 @@ if __name__ == "__main__":
 
     radar_chart = RadarChart(categories, data, title='Personality')
     radar_chart.create_chart()
+
+
+
+
+import os
+
+CURR_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+
+dummy_test = pd.read_csv(CURR_DIR_PATH + '\\' +
+    'dummy_test.csv',
+    delimiter=',')
+
+print(dummy_test)
