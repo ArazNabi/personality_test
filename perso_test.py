@@ -21,18 +21,18 @@ def personality_type(csv_file_path):
 
     #sum score per category to new dataframe
 
-    for category in category_scores.keys():
-        category_scores[category] = df[category].sum()
+    new_data= df[["Category", "Answer"]].groupby("Category").sum()
+    print(new_data.head())
 
-    # Create a new DataFrame to store the category scores.
-    category_df = pd.DataFrame(list(category_scores.items()), columns=['Category', 'Score'])
 
     # Sort the DataFrame in descending order based on scores and pick the top 3.
-    sorted_category_df = category_df.sort_values(by='Score', ascending=False)
+    sorted_category_df = new_data.sort_values(by='Answer', ascending=False)
     top_3_categories = sorted_category_df.head(3)
+    print(top_3_categories.head())
 
     # Map the top 3 categories to letters.
     top_3_letters = [category_to_letter[category] for category in top_3_categories['Category']]
 
     return category_df, top_3_categories, top_3_letters
 
+personality_type('personality_test/output_data/answers_simon_test.csv')
