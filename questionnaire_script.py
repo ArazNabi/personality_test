@@ -12,7 +12,9 @@ survey_df = pd.read_csv(
 # define allowed choices
 allowed_choices = list(map(str, range(1,8)))
 
-console.print("\nTEST: Which type of programmer are you?\n")
+console.print("\n")
+console.rule("TEST YOURSELF: Which type of programmer are you?")
+# console.print("\n")
 
 # print questions one by one and take answers
 for i in range(len(survey_df)):
