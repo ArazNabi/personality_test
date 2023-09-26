@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+import os
+
+CURR_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 user_names = {'Name': [
     'Olivia', 'Liam', 'Emma', 'Noah', 'Ava', 'Sophia', 'Isabella', 'Mia', 'Jackson', 'Aiden',
@@ -51,5 +54,6 @@ for col_name, mean_col in zip(mean_columns, range(0, 16, 2)):
     user_feelings[col_name] = mean_values
     mean_values = user_answers.iloc[:, mean_col + 2::2].mean(axis=1)
 
+
+user_feelings.to_csv(CURR_DIR_PATH +'\\'+'dummy_data.csv')
 print(user_feelings)
-user_feelings.to_csv("dummy_data.csv")
