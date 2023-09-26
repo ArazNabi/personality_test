@@ -56,4 +56,3 @@ for col_name, mean_col in zip(mean_columns, range(0, 16, 2)):
 
 
 user_feelings.to_csv(CURR_DIR_PATH +'\\'+'dummy_data.csv')
-print(user_feelings)

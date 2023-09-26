@@ -1,15 +1,27 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 import numpy as np
+import os
 import dummy_users as du
 
+
+# actual test-output
+CURR_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+dummy_test = pd.read_csv(CURR_DIR_PATH + '\\output_data\\' +
+    'answers_simon_test_new.csv',
+    delimiter=',')
+dummy_test = dummy_test.iloc[0]
 
 categories = ['Feeling', 'Perceiving', 'Introversion', 'Sensing', 'Thinking', 'Judging', 'Extroversion', 'Intuition']
 #data = [4, 3, 5, 2, 4, 3, 5, 2]  
 
-dummy_data = du.user_feelings.iloc[75]
+# dummy test-output
+# dummy_data = du.user_feelings.iloc[75]
+# user_name = dummy_data['Name']
+# data = dummy_data[categories]
 
-user_name = dummy_data['Name']
-data = dummy_data[categories]
+user_name = dummy_test['Name']
+data = dummy_test[categories]
 
 num_categories = len(categories)
 
