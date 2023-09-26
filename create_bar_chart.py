@@ -30,6 +30,7 @@ def set_letter_comb(data):
 # new_df = pd.read_csv('output_data/answers_simon_test_new.csv')
 new_df = pd.read_csv('dummy_data1.csv')
 list_of_letter_comb = []
+letter_comb_amounts = []
 
 
 for i in range(len(new_df)):
@@ -37,8 +38,22 @@ for i in range(len(new_df)):
 
 possible_combinations = list(set(list_of_letter_comb))
 
-# plt.bar(possible_combinations,list_of_letter_comb, color='green')
-# plt.show()
-# print(possible_combinations)
+for comb in possible_combinations:
+    letter_comb_amounts.append(list_of_letter_comb.count(comb) / 100)
+
+df = pd.DataFrame(
+   dict(
+      label = possible_combinations,
+      percent = letter_comb_amounts
+   )
+) 
+
+df = df.sort_values('percent', ascending=True)
+
+# how to change color scheme?
+# add percentage sign and bar label
+plt.barh('label', 'percent', data=df)
+
+plt.show()
 
 
