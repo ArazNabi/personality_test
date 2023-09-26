@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import dummy_users as du
 
 
 categories = ['Feeling', 'Perceiving', 'Introversion', 'Sensing', 'Thinking', 'Judging', 'Extroversion', 'Intuition']
 data = [4, 3, 5, 2, 4, 3, 5, 2]  
-
+dummy_data = du.user_feelings
 
 num_categories = len(categories)
 
